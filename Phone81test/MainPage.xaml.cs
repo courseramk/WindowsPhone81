@@ -19,7 +19,7 @@ namespace Phone81test
         //************************************************************
 
         // Your publisher name
-        static String companyname = "API Software, Inc";
+        static String companyname = "MattKingIT.com";
 
         // How to search for your other apps in the store
         String searchLink = "http://www.windowsphone.com/en-us/search?q=" + Uri.EscapeDataString(companyname);
