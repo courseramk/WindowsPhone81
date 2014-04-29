@@ -1,0 +1,52 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Phone81test.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <phone:WebBrowser Grid.Row="0" x:Name="Browser"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Loaded="Browser_Loaded"
+                          NavigationFailed="Browser_NavigationFailed"
+                          ScriptNotify="Browser_ScriptNotify"
+                          IsScriptEnabled="True"
+                          />
+
+
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized">
+            <shell:ApplicationBarIconButton IconUri="/Icons/sms.png" Text="message" x:Name="iconSMS"  Click="iconSMS_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Icons/share.png" Text="share" x:Name="iconShare" Click="iconShare_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Icons/star.png" Text="rate" x:Name="iconRate" Click="iconRate_Click"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="find more of our apps" x:Name="menuFind" Click="menuFind_Click" />
+                <shell:ApplicationBarMenuItem Text="share on facebook/twitter" x:Name="menuShare" Click="menuShare_Click" />
+                <shell:ApplicationBarMenuItem Text="sms text link to this app" x:Name="menuSMS" Click="menuSMS_Click" />
+                <shell:ApplicationBarMenuItem Text="email link to this app" x:Name="menuEmail" Click="menuEmail_Click" />
+                <shell:ApplicationBarMenuItem Text="rate this app" x:Name="menuRate" Click="menuRate_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
